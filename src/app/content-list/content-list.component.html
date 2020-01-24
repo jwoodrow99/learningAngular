@@ -1,0 +1,10 @@
+<p>content-list works!</p>
+
+<div *ngFor="let item of content; first as isFirst; last as isLast" [class.isLast]="isLast">
+    <img src="{{ item.imgUrl }}" alt="" (click)="displayId(item.id)">
+    <p class="body">{{ item.body }}</p>
+    <p class="author">{{ item.author }}</p>
+    <p class="title">{{ item.title }}</p>
+    <p class="type">{{ item.type }}</p>
+    <p class="tags" *ngIf="item.tags">{{ item.tags }}</p>
+</div>
