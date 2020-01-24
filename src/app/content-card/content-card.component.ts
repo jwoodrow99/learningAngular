@@ -1,47 +1,39 @@
 import { Component, OnInit } from '@angular/core';
+import { Content } from './content-card-helper';
 
-export interface Content{
-    id: number;
-    author: string;
-    imgUrl?: string;
-    type?: string;
-    title: string;
-    body: string;
-    tags?: string[];
-}
+// Commented out for assignment 2
+// class ContentList {
+//     private _types: Content[];
 
-class ContentList {
-    private _types: Content[];
+//     constructor() {
+//         this._types = [];
+//     }
 
-    constructor() {
-        this._types = [];
-    }
+//     get types(): Content[] {
+//         return this._types;
+//     }
 
-    get types(): Content[] {
-        return this._types;
-    }
+//     addContent(i: Content){
+//         this._types.push(i);
+//     }
 
-    addContent(i: Content){
-        this._types.push(i);
-    }
+//     get length(): number {
+//         return this._types.length;
+//     }
 
-    get length(): number {
-        return this._types.length;
-    }
-
-    contentHtml(i: number) {
-        const siteContent = this._types[i];
-        const outputContent = ` ID: ${siteContent.id}
-                                Author: ${siteContent.author}
-                                imgUrl: ${siteContent.imgUrl}
-                                type: ${siteContent.type}
-                                title: ${siteContent.title}
-                                body: ${siteContent.body}
-                                tags: ${siteContent.tags}`
+//     contentHtml(i: number) {
+//         const siteContent = this._types[i];
+//         const outputContent = ` ID: ${siteContent.id}
+//                                 Author: ${siteContent.author}
+//                                 imgUrl: ${siteContent.imgUrl}
+//                                 type: ${siteContent.type}
+//                                 title: ${siteContent.title}
+//                                 body: ${siteContent.body}
+//                                 tags: ${siteContent.tags} `
         
-        return outputContent;
-    }
-}
+//         return outputContent;
+//     }
+// }
 
 @Component({
   selector: 'app-content-card',
@@ -51,7 +43,8 @@ class ContentList {
 export class ContentCardComponent implements OnInit {
 
     content: Content[];
-    contentList: ContentList;
+    // contentList: ContentList;
+    contentList: any;
 
   constructor() { 
       this.content = [
@@ -84,21 +77,20 @@ export class ContentCardComponent implements OnInit {
           }
       ];
 
-      this.contentList = new ContentList();
+      //this.contentList = new ContentList();
 
       this.content.forEach(i => {
-          this.contentList.addContent(i);
+          //this.contentList.addContent(i);
       });
   }
 
   ngOnInit():void {
-      this.contentList.contentHtml(0);
+      //this.contentList.contentHtml(0);
       this.processContent(this.content[0]);
   }
 
-  processContent(i: Content):void{
+  processContent(i: Content):void {
       console.log(i);
-      
   }
 
 }
