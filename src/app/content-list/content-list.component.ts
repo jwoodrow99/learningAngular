@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Content } from './content-list-helper';
+import { Content } from '../content-card/content-card-helper';
 
 @Component({
   selector: 'app-content-list',
@@ -8,7 +8,7 @@ import { Content } from './content-list-helper';
 })
 export class ContentListComponent implements OnInit {
 
-    content: Content[] = [
+    contentList: Content[] = [
           {
               id: 1,
               author: "Author1",
@@ -60,10 +60,6 @@ export class ContentListComponent implements OnInit {
   }
 
   ngOnInit() {
-  }
-
-  displayId(item:string):void{
-    console.log(item);
   }
 
 }

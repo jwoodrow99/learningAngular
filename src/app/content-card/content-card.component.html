@@ -1,3 +1,13 @@
-<p>{{contentList.contentHtml(0)}}</p>
-<p>{{contentList.contentHtml(1)}}</p>
-<p>{{contentList.contentHtml(2)}}</p>
+<div>
+    <img src="{{ content.imgUrl }}" alt="" (click)="displayId(content.id)">
+    <p class="body">Body: {{ content.body }}</p>
+    <p class="author">Author: {{ content.author }}</p>
+    <p class="title">Title: {{ content.title }}</p>
+    <p class="type">Type: {{ content.type }}</p>
+    <section class="tags" *ngIf="content.tags">
+        Tags:
+        <ul *ngFor="let tag of content.tags">
+            <li>{{ tag }}</li>
+        </ul>
+    </section>
+</div>
