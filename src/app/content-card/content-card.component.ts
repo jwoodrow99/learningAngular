@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Content} from './content-card-helper';
+import { Content } from './content-card-helper';
 
 @Component({
   selector: 'app-content-card',
@@ -13,7 +13,7 @@ export class ContentCardComponent implements OnInit {
   ngOnInit() {
   }
   
-  displayId(item:string):void{
+  displayId(item:string) :void {
     console.log(item);
   }
 
