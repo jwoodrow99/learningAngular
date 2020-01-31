@@ -1,11 +1,19 @@
 div {
-    outline: 1px solid black;
+    border: 3px solid black;
     padding: 5px;
     margin-bottom: 5px;
 }
 
-.isLast {
-    outline: 2px solid black;
+:host.news div {
+    border-color: green;
+}
+
+:host.story div { 
+    border-color: blue;
+}
+
+:host.is-last div {
+    border-width: 5px;
 }
 
 img {

@@ -13,7 +13,7 @@ export class ContentListComponent implements OnInit {
               id: 1,
               author: "Author1",
               imgUrl: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fcdn.onlinewebfonts.com%2Fsvg%2Fimg_138950.png&f=1&nofb=1",
-              type: "type1",
+              type: "news",
               title: "title1",
               body: "body1",
               tags: ["tag1", "tag2", "tag3"]
@@ -22,7 +22,7 @@ export class ContentListComponent implements OnInit {
               id: 2,
               author: "Author2",
               imgUrl: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fcdn.onlinewebfonts.com%2Fsvg%2Fimg_138950.png&f=1&nofb=1",
-              type: "type2",
+              type: "story",
               title: "title2",
               body: "body2",
               tags: ["tag1", "tag2", "tag3"]
@@ -31,7 +31,7 @@ export class ContentListComponent implements OnInit {
               id: 3,
               author: "Author3",
               imgUrl: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fcdn.onlinewebfonts.com%2Fsvg%2Fimg_138950.png&f=1&nofb=1",
-              type: "type3",
+              type: "news",
               title: "title3",
               body: "body3",
               tags: ["tag1", "tag2", "tag3"]
@@ -40,7 +40,7 @@ export class ContentListComponent implements OnInit {
               id: 4,
               author: "Author4",
               imgUrl: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fcdn.onlinewebfonts.com%2Fsvg%2Fimg_138950.png&f=1&nofb=1",
-              type: "type4",
+              type: "story",
               title: "title4",
               body: "body4"
           },
@@ -48,7 +48,7 @@ export class ContentListComponent implements OnInit {
               id: 5,
               author: "Author5",
               imgUrl: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fcdn.onlinewebfonts.com%2Fsvg%2Fimg_138950.png&f=1&nofb=1",
-              type: "type5",
+              type: "news",
               title: "title5",
               body: "body5",
               tags: ["tag1", "tag2", "tag3"]
@@ -62,4 +62,19 @@ export class ContentListComponent implements OnInit {
   ngOnInit() {
   }
 
+    findItem(title:string):void{
+
+        let outputField = <HTMLElement> document.querySelector(".findItem > #output");
+        let output = {msg: `"${title}" is not on our list!`, clr: "red"};
+
+        this.contentList.every(i => {
+            if (i.title == title){
+                output = {msg: `"${title}" is on our list!`, clr: "green"}
+                return true;
+            }
+        });
+
+        outputField.innerHTML = output.msg;
+        outputField.style.color = output.clr;
+    }
 }
