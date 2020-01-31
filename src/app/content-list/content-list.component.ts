@@ -65,16 +65,20 @@ export class ContentListComponent implements OnInit {
     findItem(title:string):void{
 
         let outputField = <HTMLElement> document.querySelector(".findItem > #output");
-        let output = {msg: `"${title}" is not on our list!`, clr: "red"};
+        let found:boolean = false;
 
-        this.contentList.every(i => {
+        this.contentList.forEach(i => {
             if (i.title == title){
-                output = {msg: `"${title}" is on our list!`, clr: "green"}
-                return true;
+                found = true;
             }
         });
 
-        outputField.innerHTML = output.msg;
-        outputField.style.color = output.clr;
+        if (found) {
+            outputField.innerHTML = `"${title}" was found on our list!`;
+            outputField.style.color = "green";
+        } else {
+            outputField.innerHTML = `"${title}" was NOT found on our list!`;
+            outputField.style.color = "red";
+        }
     }
 }
