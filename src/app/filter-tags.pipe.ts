@@ -10,7 +10,7 @@ export class FilterTagsPipe implements PipeTransform {
 
   transform(content: Content[], type: string): Content[] {
     this.matching = [];
-    content.forEach((jazzie:Content) => {
+    content.forEach((jazzie: Content) => {
         if (jazzie.type == type){
             this.matching.push(jazzie);
         }
