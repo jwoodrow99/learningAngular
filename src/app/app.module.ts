@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { ContentCardComponent } from './content-card/content-card.component';
 import { ContentListComponent } from './content-list/content-list.component';
 import { FilterTagsPipe } from './filter-tags.pipe';
+import { UnderlineDirective } from './underline.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     ContentCardComponent,
     ContentListComponent,
-    FilterTagsPipe
+    FilterTagsPipe,
+    UnderlineDirective
   ],
   imports: [
     BrowserModule,

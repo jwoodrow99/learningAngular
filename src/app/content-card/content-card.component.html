@@ -1,8 +1,18 @@
 <div>
-    <img src="{{ content.imgUrl }}" (click)="displayId(content.id)">
+    <div class="imgContainer" [ngSwitch]='content.imgUrl'>
+        <img *ngSwitchCase=" undefined "src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fassets.materialup.com%2Fuploads%2F30080ad4-97ee-47f7-a98a-c0d2e8d704b2%2Fpreview&f=1&nofb=1" (click)="displayId(content.id)">
+        <p *ngSwitchCase=" undefined ">Default Img (imgUrl - undefined property)</p>
+
+        <img *ngSwitchCase=" '' "src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fassets.materialup.com%2Fuploads%2F30080ad4-97ee-47f7-a98a-c0d2e8d704b2%2Fpreview&f=1&nofb=1" (click)="displayId(content.id)">
+        <p *ngSwitchCase=" '' ">Default Img (imgUrl - no value)</p>
+
+        <img *ngSwitchDefault src="{{ content.imgUrl }}" (click)="displayId(content.id)">
+        <p *ngSwitchDefault>Card Img</p>
+    </div>
+    
     <p class="body">Body: {{ content.body }}</p>
     <p class="author">Author: {{ content.author }}</p>
-    <p class="title">Title: {{ content.title }}</p>
+    <p appUnderline class="title">Title: {{ content.title }}</p>
     <p class="type">Type: {{ content.type }}</p>
     <section class="tags" *ngIf="content.tags">
         Tags:

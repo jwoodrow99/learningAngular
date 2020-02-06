@@ -12,11 +12,15 @@ div {
     border-color: blue;
 }
 
-:host.is-last div {
+:host.is-last > div {
     border-width: 5px;
 }
 
-img {
-    width: 50px;
+.imgContainer {
+    border-width: 1px;
+
+    img {
+        width: 50px;
+    }
 }
 
