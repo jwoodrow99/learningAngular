@@ -12,7 +12,6 @@ export class ContentListComponent implements OnInit {
           {
               id: 1,
               author: "Author1",
-              imgUrl: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fcdn.onlinewebfonts.com%2Fsvg%2Fimg_138950.png&f=1&nofb=1",
               type: "news",
               title: "title1",
               body: "body1",
@@ -21,7 +20,7 @@ export class ContentListComponent implements OnInit {
           {
               id: 2,
               author: "Author2",
-              imgUrl: "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fcdn.onlinewebfonts.com%2Fsvg%2Fimg_138950.png&f=1&nofb=1",
+              imgUrl: "",
               type: "story",
               title: "title2",
               body: "body2",
