@@ -1,0 +1,13 @@
+
+<h1>Create new Content:</h1>
+
+<div class="form">
+    Title: <input [(ngModel)]="title" type="text" name="title"><br>
+    Author: <input [(ngModel)]="author" type="text" name="author"><br>
+    Body:  <input [(ngModel)]="body" type="text" name="body"><br>
+    Type: <input [(ngModel)]="type" type="text" name="type"><br>
+    Image: <input [(ngModel)]="imgUrl" type="text" name="imgUrl"><br>
+    Tags: <input [(ngModel)]="tags" type="text" name="tags"><br>
+    <button (click)="submit(title, author, body, type, imgUrl, tags)"> Submit </button>
+    <div class="error">{{this.error}}</div>
+</div>

@@ -1,9 +1,14 @@
 
 <section class="findItem">
+    <h1>Find new Item:</h1>
     <input placeholder="Item title" #itemTitle>
     <strong id="output"></strong> 
     <br>
     <button (click)="findItem(itemTitle.value)">Find that item!</button>
+</section>
+
+<section class="create-content">
+    <app-create-content [startingId]="contentList.length" (newEvent)="addToList($event)"></app-create-content>
 </section>
 
 <section class="news">

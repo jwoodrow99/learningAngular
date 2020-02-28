@@ -10,7 +10,7 @@ export class ContentCardComponent implements OnInit {
   @Input() content: Content;
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit():void {
   }
   
   displayId(item:string) :void {

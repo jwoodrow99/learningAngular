@@ -8,6 +8,8 @@ import { ContentListComponent } from './content-list/content-list.component';
 import { FilterTagsPipe } from './filter-tags.pipe';
 import { UnderlineDirective } from './underline.directive';
 import { TextDecorationDirective } from './text-decoration.directive';
+import { CreateContentComponent } from './create-content/create-content.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,11 +18,13 @@ import { TextDecorationDirective } from './text-decoration.directive';
     ContentListComponent,
     FilterTagsPipe,
     UnderlineDirective,
-    TextDecorationDirective
+    TextDecorationDirective,
+    CreateContentComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
