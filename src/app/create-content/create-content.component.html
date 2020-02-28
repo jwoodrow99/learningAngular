@@ -1,0 +1,12 @@
+
+<h1>Create new Content:</h1>
+
+<div class="inputs">
+    Title: <input placeholder="Title" #title> <br/>
+    Author: <input placeholder="Author" #author> <br/>
+    Body: <input placeholder="Body" #body> <br/>
+    Type: <input placeholder="Type" #type> <br/>
+    imgUrl: <input placeholder="imgUrl" #imgUrl> <br/>
+    Tags: <input placeholder="Tags" #tags> <br/>
+    <button (click)="submit(title.value, author.value, body.value, type.value, imgUrl.value, tags.value)">Add Content!</button>
+</div>
