@@ -9,6 +9,7 @@ import { FilterTagsPipe } from './filter-tags.pipe';
 import { UnderlineDirective } from './underline.directive';
 import { TextDecorationDirective } from './text-decoration.directive';
 import { CreateContentComponent } from './create-content/create-content.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CreateContentComponent } from './create-content/create-content.componen
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
