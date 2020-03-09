@@ -10,6 +10,7 @@ import { UnderlineDirective } from './underline.directive';
 import { TextDecorationDirective } from './text-decoration.directive';
 import { CreateContentComponent } from './create-content/create-content.component';
 import { FormsModule } from '@angular/forms';
+import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FormsModule } from '@angular/forms';
     FilterTagsPipe,
     UnderlineDirective,
     TextDecorationDirective,
-    CreateContentComponent
+    CreateContentComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
