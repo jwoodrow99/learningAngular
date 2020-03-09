@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {Content} from '../content-card/content-card-helper';
+import {ContentService} from '../services/content.service';
 
 @Component({
   selector: 'app-create-content',
@@ -21,7 +22,7 @@ export class CreateContentComponent implements OnInit {
     tags: string;
     error: string;
 
-  constructor() { }
+  constructor(private contentService: ContentService) {}
 
   ngOnInit(): void {
       this.currentId = this.startingId;
@@ -44,6 +45,7 @@ export class CreateContentComponent implements OnInit {
         if (title && author && body && type) {
               this.currentId++;
               this.newEvent.emit(this.newItem);
+              this.contentService.addContentObs();
               success(`${title} has been added successfully!`);
           } else {
               fail('Content was NOT added successfully!');

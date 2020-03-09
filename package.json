@@ -10,7 +10,8 @@
     "e2e": "ng e2e",
     "gc": "ng generate component",
     "gp": "ng generate pipe",
-    "gd": "ng generate directive"
+    "gd": "ng generate directive",
+    "gs": "ng generate service"
   },
   "private": true,
   "dependencies": {
