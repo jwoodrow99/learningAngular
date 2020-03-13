@@ -40,8 +40,13 @@ export class ContentListComponent implements OnInit {
     }
 
     addToList(newItem: Content) {
-        this.contentList.push(newItem);
+        this.contentService.addContent(newItem).subscribe(content => this.content.push(content));
+        //this.contentList.push(newItem);
         const myClonedArray  = Object.assign([], this.contentList);
         this.contentList = myClonedArray;
+    }
+    
+    updateToList(updateContent: Content){
+        this.contentService.updateContent(updateContent).subscribe(() => console.log("Content updated"));
     }
 }

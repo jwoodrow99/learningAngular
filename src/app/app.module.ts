@@ -12,6 +12,11 @@ import { CreateContentComponent } from './create-content/create-content.componen
 import { FormsModule } from '@angular/forms';
 import { MessagesComponent } from './messages/messages.component';
 
+// Assignment 7
+import { HttpClientModule} from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
+import { InMemoryDataService} from './in-memory-data.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +31,9 @@ import { MessagesComponent } from './messages/messages.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false, delay: 1000 })
   ],
   providers: [],
   bootstrap: [AppComponent]
