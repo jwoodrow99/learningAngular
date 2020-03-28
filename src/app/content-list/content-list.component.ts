@@ -10,13 +10,14 @@ import {contentList} from '../contentDb';
 })
 export class ContentListComponent implements OnInit {
 
-    content: Content[];
-    contentList = contentList;
+    contentList: Content[];
 
-  constructor(private contentService: ContentService) {}
+  constructor(private contentService: ContentService) {
+      this.contentList = [];
+  }
 
   ngOnInit() {
-      this.contentService.getContentObs().subscribe(c => this.content = c);
+      this.contentService.getContentObs().subscribe(c => this.contentList = c);
   }
 
     findItem(title:string):void{
@@ -40,7 +41,7 @@ export class ContentListComponent implements OnInit {
     }
 
     addToList(newItem: Content) {
-        this.contentService.addContent(newItem).subscribe(content => this.content.push(content));
+        this.contentService.addContent(newItem).subscribe(content => this.contentList.push(content));
         //this.contentList.push(newItem);
         const myClonedArray  = Object.assign([], this.contentList);
         this.contentList = myClonedArray;
