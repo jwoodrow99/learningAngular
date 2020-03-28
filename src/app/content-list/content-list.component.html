@@ -1,10 +1,13 @@
 
 <section class="findItem">
     <h1>Find new Item:</h1>
-    <input placeholder="Item title" #itemTitle>
-    <strong id="output"></strong> 
+    
+    <mat-form-field>
+        <input matInput color="primary" placeholder="Item title" #itemTitle>
+        <strong id="output"></strong> 
+    </mat-form-field>
     <br>
-    <button (click)="findItem(itemTitle.value)">Find that item!</button>
+    <button matRipple mat-raised-button color="primary" (click)="findItem(itemTitle.value)">Find that item!</button>
 </section>
 
 <section class="create-content">
