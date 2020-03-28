@@ -1,0 +1,40 @@
+<h1 mat-dialog-title>New Item</h1>
+
+<div mat-dialog-content>
+
+    <mat-form-field>
+        <mat-label>Title</mat-label>
+        <input matInput placeholder="" [(ngModel)]="data.newContentItem.title">
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Author</mat-label>
+        <input matInput placeholder="" [(ngModel)]="data.newContentItem.author">
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Body</mat-label>
+        <input matInput placeholder="" [(ngModel)]="data.newContentItem.body">
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Type</mat-label>
+        <input matInput placeholder="" [(ngModel)]="data.newContentItem.type">
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Image Url</mat-label>
+        <input matInput placeholder="" [(ngModel)]="data.newContentItem.imgUrl">
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Tag</mat-label>
+        <input matInput placeholder="" [(ngModel)]="data.newContentItem.tags">
+    </mat-form-field>
+
+</div>
+
+<div mat-dialog-actions>
+    <button mat-button matRipple (click)="onNoClick()">Cancel</button>
+    <button mat-button [mat-dialog-close]="data.newContentItem" cdkFocusInitial>[ADD]</button>
+</div>

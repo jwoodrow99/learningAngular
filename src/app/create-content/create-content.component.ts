@@ -1,6 +1,11 @@
-import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, Inject} from '@angular/core';
 import {Content} from '../content-card/content-card-helper';
 import {ContentService} from '../services/content.service';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+
+export interface DialogData {
+    newContentItem: Content;
+}
 
 @Component({
   selector: 'app-create-content',
@@ -14,53 +19,63 @@ export class CreateContentComponent implements OnInit {
     newItem: Content;
     currentId: number;
 
-    title: string;
-    author: string;
-    body: string;
-    type: string;
-    imgUrl: string;
-    tags: string;
-    error: string;
+    // title: string;
+    // author: string;
+    // body: string;
+    // type: string;
+    // imgUrl: string;
+    // tags: string;
+    // error: string;
 
-  constructor(private contentService: ContentService) {}
+  constructor(public dialog: MatDialog) {
+      this.resetNewContentItem();
+  }
 
   ngOnInit(): void {
       this.currentId = this.startingId;
   }
 
-  submit(title:string, author:string, body:string, type:string, imgUrl?:string, tags?:string):void {
-      //console.log(`Title: ${title} \n Author: ${author} \n Body: ${body} \n Type: ${type} \n imgUrl: ${imgUrl} \n Tags: ${tags}`);
-
-      const ourPromise = new Promise((success, fail) => {
+      resetNewContentItem() {
         this.newItem = {
-            id: this.currentId,
-            title: title,
-            author: author,
-            body: body,
-            type: type,
-            imgUrl: imgUrl,
-            tags: tags.split(",")
+            title: '',
+            author: '',
+            body: '',
+            type: '',
+            imgUrl: '',
+            tags: []
         };
+      }
 
-        if (title && author && body && type) {
-              this.currentId++;
-              this.newEvent.emit(this.newItem);
-              this.contentService.addContentObs();
-              success(`${title} has been added successfully!`);
-          } else {
-              fail('Content was NOT added successfully!');
-          }
-      });
+    addContent(): void {
+        this.newEvent.emit(this.newItem);
+        this.resetNewContentItem();
+    }
 
-    ourPromise.then((successResult) => {
-        this.error = '';
-        this.title = '';
-        this.author = '';
-        this.body = '';
-        this.type = '';
-        this.imgUrl = '';
-        this.tags = '';
-        return console.log(successResult); })
-          .catch(failResult => this.error = failResult);
-  }
+    openDialog() {
+        const dialogRef = this.dialog.open(CreateContentDialogComponent, {
+            width: '350px',
+            data: {newContentItem: this.newItem}
+        });
+
+        dialogRef.afterClosed().subscribe(result => {
+            console.log('The dialog was closed', result);
+            this.newItem = result;
+            this.addContent();
+        });
+    }
+}
+
+@Component({
+    selector: 'create-content-dialog',
+    templateUrl: './create-content-dialog.component.html',
+})
+
+export class CreateContentDialogComponent {
+    constructor(
+        public dialogRef: MatDialogRef<CreateContentDialogComponent>,
+        @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+
+    onNoClick(): void {
+        this.dialogRef.close();
+    }
 }

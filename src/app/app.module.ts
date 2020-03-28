@@ -8,7 +8,7 @@ import { ContentListComponent } from './content-list/content-list.component';
 import { FilterTagsPipe } from './filter-tags.pipe';
 import { UnderlineDirective } from './underline.directive';
 import { TextDecorationDirective } from './text-decoration.directive';
-import { CreateContentComponent } from './create-content/create-content.component';
+import { CreateContentComponent, CreateContentDialogComponent } from './create-content/create-content.component';
 import { FormsModule } from '@angular/forms';
 import { MessagesComponent } from './messages/messages.component';
 
@@ -16,6 +16,15 @@ import { MessagesComponent } from './messages/messages.component';
 import { HttpClientModule} from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
 import { InMemoryDataService} from './in-memory-data.service';
+
+// Assignment 8
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatRippleModule} from '@angular/material/core';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -26,14 +35,25 @@ import { InMemoryDataService} from './in-memory-data.service';
     UnderlineDirective,
     TextDecorationDirective,
     CreateContentComponent,
-    MessagesComponent
+    MessagesComponent,
+    CreateContentDialogComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
+    MatButtonModule,
+    MatInputModule,
+    MatCardModule,
+    MatDividerModule,
+    MatDialogModule,
+    MatRippleModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false, delay: 1000 })
+  ],
+  entryComponents: [
+      CreateContentDialogComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
