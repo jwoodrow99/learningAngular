@@ -1,0 +1,22 @@
+<section class="detail">
+    <!-- <img class="content-image" src="{{ content.imgUrl || 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fassets.materialup.com%2Fuploads%2F30080ad4-97ee-47f7-a98a-c0d2e8d704b2%2Fpreview&f=1&nofb=1' }}"><br> -->
+    <div class="content-title">
+        {{ content.title }}
+    </div><br>
+    <div class="content-body">
+        {{ content.body }}
+    </div><br>
+    <div class="content-type">
+        <strong>Type:</strong> {{ content.type }}
+    </div>
+    <div class="content-author">
+        <strong>Author:</strong> {{ content.author }}
+    </div><br>
+    <div class="content-tags" *ngIf="content && content.tags">
+        <h4>Tags:</h4>
+        <div *ngFor="let tag of content.tags">
+            {{ tag }}
+        </div>
+    </div><br>
+    <a routerLink="" routerLinkActive="active"> Return to List </a><br>
+</section> 
