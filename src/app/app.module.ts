@@ -25,6 +25,9 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatRippleModule} from '@angular/material/core';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatCardModule} from '@angular/material/card';
+import { RouterModule } from '@angular/router';
+import { ContentDetailComponent } from './content-detail/content-detail.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,9 @@ import {MatCardModule} from '@angular/material/card';
     TextDecorationDirective,
     CreateContentComponent,
     MessagesComponent,
-    CreateContentDialogComponent
+    CreateContentDialogComponent,
+    ContentDetailComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +55,13 @@ import {MatCardModule} from '@angular/material/card';
     MatDialogModule,
     MatRippleModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false, delay: 1000 })
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false, delay: 1000 }),
+    RouterModule.forRoot([
+        { path: 'content', component: ContentListComponent },
+        { path: 'content/:id', component: ContentDetailComponent },
+        { path: '', component: ContentListComponent },
+        { path: '**', component: NotFoundComponent }
+    ])
   ],
   entryComponents: [
       CreateContentDialogComponent
